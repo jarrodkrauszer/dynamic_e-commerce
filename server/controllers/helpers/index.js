@@ -34,4 +34,4 @@ async function isAuthenticate(req, res, next) {
   }
 }
 
-module.exports = { createToken, authenticate }
+module.exports = { createToken, isAuthenticate }

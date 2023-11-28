@@ -52,6 +52,7 @@ module.exports = {
       })
 
       const token = await createToken(user._id);
+
       res.cookie('token', token, {
         maxAge: 60 * 60 * 1000,
         httpOnly: true
@@ -76,6 +77,7 @@ module.exports = {
   },
 
   async authenticate(req, res) {
+    console.log('Authenticate!', req.cookies.token)
     const token = req.cookies.token;
 
     if (!token) return res.status(500).json({ user: null });

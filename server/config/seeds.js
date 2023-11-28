@@ -1,6 +1,7 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { Product, Category, Company } = require('../models');
 const cleanDB = require('./cleanDB');
+const { LogOutput } = require('concurrently');
 
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
@@ -22,7 +23,7 @@ db.once('open', async () => {
       name: 'Camo Down Vest',
       description:
         'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
+      image: 'camo-vest.png',
       category: categories[0]._id,
       price: 199.99,
       quantity: 150
@@ -31,7 +32,7 @@ db.once('open', async () => {
       name: 'Floral T-Shirt',
       description:
         'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
+      image: 'floral-shirt.png',
       category: categories[0]._id,
       price: 24.99,
       quantity: 200
@@ -41,7 +42,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
+      image: 'long-sleeve.png',
       price: 29.99,
       quantity: 78
     },
@@ -50,7 +51,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
+      image: 'pink-shirt.png',
       price: 19.00,
       quantity: 150
     },
@@ -59,7 +60,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+      image: 'roll-up-jean-shirt.png',
       price: 29.99,
       quantity: 100
     },
@@ -68,7 +69,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
+      image: 'polka-dot-shirt.png',
       price: 19.00,
       quantity: 90
     },
@@ -77,7 +78,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      imageUrl: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
+      image: 'blue-tank.png',
       price: 19.00,
       quantity: 80
     },
@@ -86,7 +87,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
+      image: 'floral-blouse.png',
       price: 29.99,
       quantity: 100
     },
@@ -94,7 +95,7 @@ db.once('open', async () => {
       name: 'Floral Dress',
       category: categories[1]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      imageUrl: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
+      image: 'floral-skirt.png',
       price: 49.50,
       quantity: 113
     },
@@ -103,7 +104,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
+      image: 'red-polka-dot-dress.png',
       price: 75.25,
       quantity: 200
     },
@@ -112,7 +113,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      imageUrl: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
+      image: 'striped-sweater.png',
       price: 44.99,
       quantity: 100
     },
@@ -121,7 +122,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.pngg',
+      image: 'yellow-track-suit.png',
       price: 74.99,
       quantity: 125
     },
@@ -130,7 +131,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
+      image: 'white-vest.png',
       price: 39.99,
       quantity: 125
     },
@@ -139,7 +140,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
+      image: 'brown-brim.png',
       price: 19.00,
       quantity: 80
     },
@@ -147,7 +148,7 @@ db.once('open', async () => {
       name: 'Brown Cowboy',
       category: categories[2]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
+      image: 'brown-cowboy.png',
       price: 64.99,
       quantity: 110
     },
@@ -156,7 +157,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      imageUrl: 'https://i.ibb.co/RjBLWxB/grey-brim.png',
+      image: 'grey-brim.png',
       price: 19.00,
       quantity: 200
     },
@@ -165,7 +166,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+      image: 'blue-beanie.png',
       price: 13.00,
       quantity: 74
     },
@@ -174,7 +175,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      imageUrl: 'https://i.ibb.co/YTjW3vF/green-beanie.png',
+      image: 'green-beanie.png',
       price: 13.00,
       quantity: 100
     },
@@ -183,7 +184,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/bLB646Z/red-beanie.png',
+      image: 'red-beanie.png',
       price: 13.00,
       quantity: 125
     },
@@ -192,7 +193,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/rKBDvJX/palm-tree-cap.png',
+      image: 'palm-tree-cap.png',
       price: 21.99,
       quantity: 125
     },
@@ -201,7 +202,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
+      image: 'black-shearling.png',
       price: 119.00,
       quantity: 80
     },
@@ -209,7 +210,7 @@ db.once('open', async () => {
       name: 'Blue Jean Jacket',
       category: categories[3]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
+      image: 'blue-jean-jacket.png',
       price: 99.00,
       quantity: 110
     },
@@ -218,7 +219,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      imageUrl: 'https://i.ibb.co/N71k1ML/grey-jean-jacket.png',
+      image: 'grey-jean-jacket.png',
       price: 69.00,
       quantity: 200
     },
@@ -227,7 +228,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
+      image: 'brown-shearling.png',
       price: 119.99,
       quantity: 74
     },
@@ -236,7 +237,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
+      image: 'brown-trench.png',
       price: 129.99,
       quantity: 100
     },
@@ -245,7 +246,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
+      image: 'adidas-nmd.png',
       price: 119.99,
       quantity: 100
     },
@@ -254,7 +255,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
+      image: 'yeezy.png',
       price: 199.99,
       quantity: 125
     },
@@ -263,7 +264,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
+      image: 'white-nike-high-tops.png',
       price: 159.99,
       quantity: 125
     },
@@ -272,7 +273,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      imageUrl: 'https://i.ibb.co/QcvzydB/nikes-red.png',
+      image: 'nikes-red.png',
       price: 119.00,
       quantity: 80
     },
@@ -280,7 +281,7 @@ db.once('open', async () => {
       name: 'Nike Brown High Tops',
       category: categories[4]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      imageUrl: 'https://i.ibb.co/fMTV342/nike-brown.pngg',
+      image: 'nike-brown.png',
       price: 119.00,
       quantity: 110
     },
@@ -289,7 +290,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      imageUrl: 'https://i.ibb.co/w4k6Ws9/nike-funky.png',
+      image: 'nike-funky.png',
       price: 199.00,
       quantity: 200
     },
@@ -298,7 +299,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      imageUrl: 'https://i.ibb.co/Mhh6wBg/timberlands.png',
+      image: 'timberlands.png',
       price: 129.00,
       quantity: 74
     }
@@ -308,19 +309,19 @@ db.once('open', async () => {
 
   console.log('products seeded');
 
-  await User.create({
-    firstName: 'Jarrod',
-    lastName: 'Krauszer',
-    email: 'jarrod@test.com',
-    password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
+  const comapny = await Company.create({
+    name: 'UrbanVogue',
+    image: 'logo.png',
+    address: {
+      street: '13 Main St',
+      city: 'Trenton',
+      state: 'New Jersey',
+      postalCode: '08618'
+    },
+    phone: '(609) 555-5555'
   });
 
-  console.log('users seeded');
+  console.log('company seeded');
 
   process.exit();
 });

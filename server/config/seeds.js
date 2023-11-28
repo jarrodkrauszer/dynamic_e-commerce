@@ -24,7 +24,7 @@ db.once('open', async () => {
         'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
       imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
       category: categories[0]._id,
-      price: 199.00,
+      price: 199.99,
       quantity: 150
     },
     {
@@ -33,7 +33,7 @@ db.once('open', async () => {
         'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
       imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
       category: categories[0]._id,
-      price: 25.00,
+      price: 24.99,
       quantity: 200
     },
     {
@@ -42,7 +42,7 @@ db.once('open', async () => {
       description:
         'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
       imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-      price: 20.00,
+      price: 29.99,
       quantity: 78
     },
     {
@@ -60,7 +60,7 @@ db.once('open', async () => {
       description:
         'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
       imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-      price: 29.00,
+      price: 29.99,
       quantity: 100
     },
     {
@@ -69,7 +69,7 @@ db.once('open', async () => {
       description:
         'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
       imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-      price: 25.00,
+      price: 19.00,
       quantity: 90
     },
     {
@@ -87,7 +87,7 @@ db.once('open', async () => {
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
       imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
-      price: 30.00,
+      price: 29.99,
       quantity: 100
     },
     {
@@ -95,7 +95,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
       imageUrl: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
-      price: 49.00,
+      price: 49.50,
       quantity: 113
     },
     {
@@ -104,7 +104,7 @@ db.once('open', async () => {
       description:
         'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
       imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
-      price: 75.00,
+      price: 75.25,
       quantity: 200
     },
     {
@@ -113,7 +113,7 @@ db.once('open', async () => {
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
       imageUrl: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
-      price: 44.00,
+      price: 44.99,
       quantity: 100
     },
     {
@@ -122,7 +122,7 @@ db.once('open', async () => {
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.pngg',
-      price: 74.00,
+      price: 74.99,
       quantity: 125
     },
     {
@@ -131,7 +131,7 @@ db.once('open', async () => {
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
-      price: 39.00,
+      price: 39.99,
       quantity: 125
     },
     {
@@ -148,7 +148,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
       imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
-      price: 64.00,
+      price: 64.99,
       quantity: 110
     },
     {
@@ -193,7 +193,7 @@ db.once('open', async () => {
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       imageUrl: 'https://i.ibb.co/rKBDvJX/palm-tree-cap.png',
-      price: 29.00,
+      price: 21.99,
       quantity: 125
     },
     {
@@ -228,7 +228,7 @@ db.once('open', async () => {
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
       imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
-      price: 119.00,
+      price: 119.99,
       quantity: 74
     },
     {
@@ -237,7 +237,7 @@ db.once('open', async () => {
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
       imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
-      price: 129.00,
+      price: 129.99,
       quantity: 100
     },
     {
@@ -246,7 +246,7 @@ db.once('open', async () => {
       description:
         'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
       imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-      price: 119.00,
+      price: 119.99,
       quantity: 100
     },
     {
@@ -255,7 +255,7 @@ db.once('open', async () => {
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-      price: 199.00,
+      price: 199.99,
       quantity: 125
     },
     {
@@ -264,7 +264,7 @@ db.once('open', async () => {
       description:
         'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
       imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
-      price: 159.00,
+      price: 159.99,
       quantity: 125
     },
     {

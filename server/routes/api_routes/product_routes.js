@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { authenticate } = require('../../controllers/helpers');
+const { isAuthenticate } = require('../../controllers/helpers');
 
 const {
   getAllProducts,
@@ -10,12 +10,12 @@ const {
   = require('../../controllers/product_controller');
 
 router.route('/:id')
-  .delete(authenticate, deleteProductById)
-  .put(authenticate, updateProductById)
-  .get(authenticate, getProductById)
+  .delete(isAuthenticate, deleteProductById)
+  .put(isAuthenticate, updateProductById)
+  .get(isAuthenticate, getProductById)
 
 router.route('/')
-  .post(authenticate, createProduct)
-  .get(authenticate, getAllProducts);
+  .post(isAuthenticate, createProduct)
+  .get(isAuthenticate, getAllProducts);
 
 module.exports = router;

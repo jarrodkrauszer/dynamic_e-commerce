@@ -11,7 +11,7 @@ async function createToken(user_id) {
   }
 }
 
-async function authenticate(req, res, next) {
+async function isAuthenticate(req, res, next) {
   const token = req.cookies.token;
 
   if (!token) return res.status(401).json({

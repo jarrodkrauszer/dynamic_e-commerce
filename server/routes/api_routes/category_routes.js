@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { authenticate } = require('../../controllers/helpers');
+const { isAuthenticate } = require('../../controllers/helpers');
 
 const { getAllCategories, getCategoryById, createCategory, deleteCategoryById, updateCategoryById } = require('../../controllers/category_controller');
 
 router.route('/:id')
-  .delete(authenticate, deleteCategoryById)
-  .put(authenticate, updateCategoryById)
-  .get(authenticate, getCategoryById);
+  .delete(isAuthenticate, deleteCategoryById)
+  .put(isAuthenticate, updateCategoryById)
+  .get(isAuthenticate, getCategoryById);
 
 router.route('/')
-  .get(authenticate, getAllCategories)
-  .post(authenticate, createCategory);
+  .get(isAuthenticate, getAllCategories)
+  .post(isAuthenticate, createCategory);
 
 module.exports = router;

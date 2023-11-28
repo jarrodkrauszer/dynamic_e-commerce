@@ -73,5 +73,27 @@ module.exports = {
     res.json({
       message: 'Logged out successfully!'
     })
+  },
+
+  async authenticate(req, res) {
+    const token = req.cookies.token;
+
+    if (!token) return res.status(500).json({ user: null });
+
+    try {
+      const data = await verify(token, process.env.JWT_SECRET, {
+        maxAge: '1hr'
+      });
+
+      const user = await User.findById(data.user_id);
+
+      res.status(200).json({ user });
+
+    } catch (err) {
+      console.log(err.message);
+      res.status(401).json({
+        user: null
+      })
+    }
   }
 }

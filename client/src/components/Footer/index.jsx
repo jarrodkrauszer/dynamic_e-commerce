@@ -1,4 +1,8 @@
+import { useStoreContext } from "../../utils/store";
+
 function Footer() {
+  const [state, dispatch] = useStoreContext();
+
   return (
     <footer className="w-full bg-black p-2 mt-14">
       <div className="text-white flex flex-col md:flex-row justify-center md:justify-between items-center mx-auto px-2">
@@ -6,9 +10,9 @@ function Footer() {
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <h3 className="underline">Contact Us:</h3>
           <ul>
-            <li>Phone: (555)-657-8965</li>
-            <li>Email: urbanvogue@gmail.com</li>
-            <li>Address: 555 Deer Rd, Moonview, AK, 55555</li>
+            <li>Phone: {state.company?.phone}</li>
+            <li>Email: {state.company?.email}</li>
+            <li>Address: {state.company.address?.street}, {state.company.address?.city}, {state.company.address?.state}, {state.company.address?.postalCode}</li>
           </ul>
         </div>
 

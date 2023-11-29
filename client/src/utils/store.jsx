@@ -12,7 +12,8 @@ export const StoreProvider = ({ value = [], ...props }) => {
     user: null,
     company: null,
     categories: [],
-    currentCategory: ''
+    currentCategory: '',
+    sales: []
   })
 
   return (

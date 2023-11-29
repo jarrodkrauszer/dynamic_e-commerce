@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { Product, Category, Company } = require('../models');
+const { Product, Category, Company, Sale } = require('../models');
 const cleanDB = require('./cleanDB');
 const { LogOutput } = require('concurrently');
 
@@ -309,7 +309,7 @@ db.once('open', async () => {
 
   console.log('products seeded');
 
-  const comapny = await Company.create({
+  await Company.create({
     name: 'UrbanVogue',
     image: 'logo.png',
     address: {
@@ -323,6 +323,27 @@ db.once('open', async () => {
   });
 
   console.log('company seeded');
+
+  await Sale.create([
+    {
+      description: '70% Sale on all Menswear',
+      image: 'white-background.png',
+      category: categories[0]._id
+    },
+    {
+      description: '50% Sale on all Shoes',
+      image: 'black-background.jpg',
+      category: categories[4]._id
+    },
+    {
+      description: '20% off all Hats',
+      image: 'white-background2.jpg',
+      category: categories[2]._id
+    },
+
+  ]);
+
+  console.log('sales seeded');
 
   process.exit();
 });

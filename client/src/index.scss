@@ -68,3 +68,11 @@ a {
 .margin-auto {
   margin: auto;
 }
+
+.sale-img {
+  transition: opacity .3s ease;
+}
+
+.sale-img:hover {
+  opacity: .5;
+}

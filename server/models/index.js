@@ -4,4 +4,5 @@ module.exports = {
   Category: require('./Category'),
   Order: require('./Order'),
   Company: require('./Company'),
+  Sale: require('./Sale')
 }

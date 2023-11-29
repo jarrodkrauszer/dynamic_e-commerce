@@ -3,6 +3,7 @@ import {
   UPDATE_COMPANY_INFO,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
+  UPDATE_SALES
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -28,6 +29,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentCategory: action.currentCategory
+      }
+
+    case UPDATE_SALES:
+      return {
+        ...state,
+        sales: [...action.sales]
       }
 
     default:

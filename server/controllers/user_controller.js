@@ -77,10 +77,9 @@ module.exports = {
   },
 
   async authenticate(req, res) {
-    console.log('Authenticate!', req.cookies.token)
     const token = req.cookies.token;
 
-    if (!token) return res.status(500).json({ user: null });
+    if (!token) return res.json({ user: null });
 
     try {
       const data = await verify(token, process.env.JWT_SECRET, {

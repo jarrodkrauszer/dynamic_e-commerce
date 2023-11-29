@@ -1,0 +1,32 @@
+@use '../../variables' as v;
+
+header {
+  padding: 1rem 2%;
+  background-color: v.$main-bg-color;
+
+  a {
+    box-sizing: border-box;
+    margin: 0 .25rem;
+    color: #fff;
+  }
+
+  a:hover {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+.logo {
+  height: 2rem;
+  padding: 0 .25rem;
+  flex-shrink: 0;
+}
+
+.login-container {
+  color: #fff;
+  padding: .2rem 0;
+
+  p {
+    margin-right: .75rem;
+  }
+
+}

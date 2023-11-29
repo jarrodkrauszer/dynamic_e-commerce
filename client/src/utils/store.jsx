@@ -9,7 +9,10 @@ export function useProductReducer(initialState) {
 
 export const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
-    user: null
+    user: null,
+    company: null,
+    categories: [],
+    currentCategory: ''
   })
 
   return (

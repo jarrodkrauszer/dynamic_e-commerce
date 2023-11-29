@@ -16,6 +16,6 @@ router.route('/:id')
 
 router.route('/')
   .post(isAuthenticate, createProduct)
-  .get(isAuthenticate, getAllProducts);
+  .get(getAllProducts);
 
 module.exports = router;

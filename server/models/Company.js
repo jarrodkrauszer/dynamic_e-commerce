@@ -31,7 +31,20 @@ const companySchema = new Schema({
   phone: {
     type: String,
     required: true
-  }
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: {
+      validator(val) {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi.test(val)
+      },
+      message() {
+        return 'You must enter a valid email address.'
+      }
+    }
+  },
 }, {
   timestamps: true,
   collection: 'company'

@@ -9,7 +9,7 @@ router.route('/:id')
   .get(isAuthenticate, getCategoryById);
 
 router.route('/')
-  .get(isAuthenticate, getAllCategories)
+  .get(getAllCategories)
   .post(isAuthenticate, createCategory);
 
 module.exports = router;

@@ -38,7 +38,7 @@ function Header() {
           categories: res.data
         })
       })
-  }, [dispatch])
+  }, [])
 
   const handleClick = (id) => {
     dispatch({
@@ -48,34 +48,32 @@ function Header() {
   }
 
   const navigation = state?.categories || []
-  console.log('Navigation: ', navigation)
 
   return (
     <header className="row align-center justify-space-between">
       <div >
-        <NavLink to='/' className='row align-center text-center'>
+        <NavLink to='/' className='row align-center center-text'>
           {state.company && (
             <img className='logo' src={`/images/${state.company.image}`} alt="Your Company" />
           )}
         </NavLink>
       </div>
-      <div>
-        <div className="row justify-center align-center flex-grow text-center">
-          {navigation.map(item => (
-            <NavLink
-              key={item._id}
-              to='/products'
-              onClick={() => {
-                handleClick(item._id)
-              }}
-            >
-              {item.name}
-            </NavLink>
-          ))}
-        </div>
+
+      <div className="row justify-center align-center center-text align-self">
+        {navigation.map(item => (
+          <NavLink
+            key={item._id}
+            to='/products'
+            onClick={() => {
+              handleClick(item._id)
+            }}
+          >
+            {item.name}
+          </NavLink>
+        ))}
       </div>
 
-      <div className="login-container row align-center text-center">
+      <div className="login-container row align-center center-text">
         {state.user ? (
           <>
             <p className='welcome'>

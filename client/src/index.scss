@@ -33,8 +33,12 @@ a {
   flex-direction: column;
 }
 
-.flex-grow {
+.flex-grow-1 {
   flex-grow: 1;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 0;
 }
 
 .justify-center {
@@ -49,7 +53,11 @@ a {
   align-items: center;
 }
 
-.text-center {
+.align-self {
+  align-self: center;
+}
+
+.center-text {
   text-align: center;
 }
 

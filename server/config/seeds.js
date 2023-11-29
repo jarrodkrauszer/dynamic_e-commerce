@@ -318,7 +318,8 @@ db.once('open', async () => {
       state: 'New Jersey',
       postalCode: '08618'
     },
-    phone: '(609) 555-5555'
+    phone: '(609) 555-5555',
+    email: 'support@urbanvogue.com'
   });
 
   console.log('company seeded');

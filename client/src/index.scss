@@ -24,6 +24,11 @@ a {
   text-decoration: none;
 }
 
+input,
+button {
+  border: none;
+}
+
 .row,
 .column {
   display: flex;
@@ -71,6 +76,10 @@ a {
 
 .mt-1 {
   margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem
 }
 
 .mb-1 {

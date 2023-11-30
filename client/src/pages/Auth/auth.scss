@@ -35,6 +35,12 @@
     background-color: v.$main-bg-color;
     color: #fff;
     border-radius: 3px;
-    padding: .4rem 8.5rem
+    padding: .4rem 8.2rem;
+    font-size: 1.15rem;
+    transition: opacity .3s ease;
+  }
+
+  .submit-btn:hover {
+    opacity: .7;
   }
 }

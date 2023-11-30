@@ -87,7 +87,6 @@ function Auth({ isLogin }) {
               <div className='name-inputs mb-1'>
                 <label
                   htmlFor="firstName"
-                  className=""
                 >
                   First Name
                 </label>
@@ -99,7 +98,6 @@ function Auth({ isLogin }) {
                     value={formData.firstName}
                     type="text"
                     required
-                    className=""
                   />
                 </div>
               </div>
@@ -110,7 +108,7 @@ function Auth({ isLogin }) {
                 >
                   Last Name
                 </label>
-                <div className="">
+                <div>
                   <input
                     id="lastName"
                     onChange={handleInputChange}
@@ -118,7 +116,6 @@ function Auth({ isLogin }) {
                     value={formData.lastName}
                     type="text"
                     required
-                    className=""
                   />
                 </div>
               </div>
@@ -142,21 +139,19 @@ function Auth({ isLogin }) {
                 type="email"
                 autoComplete="email"
                 required
-                className=""
               />
             </div>
           </div>
 
           <div>
-            <div className="">
+            <div>
               <label
                 htmlFor="password"
-                className=""
               >
                 Password
               </label>
             </div>
-            <div className="">
+            <div>
               <input
                 id="password"
                 onChange={handleInputChange}
@@ -165,7 +160,6 @@ function Auth({ isLogin }) {
                 type="password"
                 autoComplete="current-password"
                 required
-                className=""
               />
             </div>
           </div>

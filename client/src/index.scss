@@ -53,11 +53,11 @@ a {
   align-items: center;
 }
 
-.align-self {
+.align-self-center {
   align-self: center;
 }
 
-.center-text {
+.text-center {
   text-align: center;
 }
 
@@ -67,6 +67,14 @@ a {
 
 .margin-auto {
   margin: auto;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem
 }
 
 .sale-img {

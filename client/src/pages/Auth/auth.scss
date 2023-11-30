@@ -1,0 +1,40 @@
+@use '../../variables' as v;
+
+.auth-container {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  margin: 35px auto 0;
+  align-items: center;
+
+  .auth-heading {
+    h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+  }
+
+  .auth-form {
+
+    input {
+      width: 20rem;
+      height: 2rem;
+      background-color: #f4f4f4;
+      border-radius: 3px;
+      padding-left: .2rem;
+    }
+
+    label {
+      font-size: 1.2rem;
+    }
+  }
+
+  .submit-btn {
+    background-color: v.$main-bg-color;
+    color: #fff;
+    border-radius: 3px;
+    padding: .4rem 8.5rem
+  }
+}

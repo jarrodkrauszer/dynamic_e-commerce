@@ -12,13 +12,13 @@ function Footer() {
           <ul>
             <li>Phone: {state.company?.phone}</li>
             <li>Email: {state.company?.email}</li>
-            <li>Address: {state.company.address?.street}, {state.company.address?.city}, {state.company.address?.state}, {state.company.address?.postalCode}</li>
+            <li>Address: {state.company?.address.street}, {state.company?.address.city}, {state.company?.address.state}, {state.company?.address.postalCode}</li>
           </ul>
         </div>
 
         {/* Centered Logo */}
         <div className="flex items-center justify-center md:mr-40">
-          <img src='' alt="logo-ct" className="w-10" />
+          <img src={`/images/${state.company?.image}`} alt="logo-ct" className="w-10" />
         </div>
 
         {/* Copyright */}

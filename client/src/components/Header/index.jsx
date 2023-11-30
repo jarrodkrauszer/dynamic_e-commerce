@@ -73,7 +73,7 @@ function Header() {
         ))}
       </div>
 
-      <div className="login-container row align-center center-text">
+      <div className="login-header row align-center center-text">
         {state.user ? (
           <>
             <p className='welcome'>

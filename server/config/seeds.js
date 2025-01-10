@@ -11,11 +11,11 @@ db.once('open', async () => {
   await cleanDB('Company', 'company');
 
   const categories = await Category.insertMany([
-    { name: 'Mens' },
-    { name: 'Womens' },
-    { name: 'Hats' },
-    { name: 'Jackets' },
-    { name: 'Sneakers' }
+    { name: 'Mens', image: 'men.png' },
+    { name: 'Womens', image: 'womens.png' },
+    { name: 'Hats', image: 'hats.png' },
+    { name: 'Jackets', image: 'jakcets.png' },
+    { name: 'Sneakers', image: 'sneakers.png' }
   ]);
 
   console.log('categories seeded');

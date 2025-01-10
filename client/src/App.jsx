@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import { UPDATE_USER, UPDATE_COMPANY_INFO } from "./utils/actions";
+import { UPDATE_USER, UPDATE_COMPANY_INFO } from "./utils/actions"
 
 import Header from '../src/components/Header'
 import Footer from '../src/components/Footer'
@@ -9,7 +9,7 @@ import Footer from '../src/components/Footer'
 import Auth from "./pages/Auth";
 import Landing from './pages/Landing'
 
-import { useStoreContext } from "./utils/store";
+import { useStoreContext } from "./utils/store"
 
 import axios from 'axios'
 

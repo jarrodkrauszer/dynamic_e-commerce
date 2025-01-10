@@ -50,52 +50,53 @@ function Header() {
   const navigation = state?.categories || []
 
   return (
-    <header className="row align-center justify-space-between">
-      <div >
-        <NavLink to='/' className='row align-center center-text'>
-          {state.company && (
-            <img className='logo' src={`/images/${state.company.image}`} alt="Your Company" />
-          )}
-        </NavLink>
-      </div>
-
-      <div className="row justify-center align-center center-text align-self">
-        {navigation.map(item => (
-          <NavLink
-            key={item._id}
-            to='/products'
-            onClick={() => {
-              handleClick(item._id)
-            }}
-          >
-            {item.name}
+    <>
+      <header className="row align-center justify-space-between">
+        <div >
+          <NavLink to='/' className='row align-center center-text'>
+            {state.company && (
+              <img className='logo' src={`/images/${state.company.image}`} alt="Your Company" />
+            )}
           </NavLink>
-        ))}
-      </div>
+        </div>
 
-      <div className="login-header row align-center center-text">
-        {state.user ? (
-          <>
-            <p className='welcome'>
-              Welcome, {state.user.firstName}
-            </p>
+        <div className="row justify-center align-center center-text align-self">
+          {navigation.map(item => (
             <NavLink
-              to='/logout'
-              onClick={logout}
+              key={item._id}
+              to='/products'
+              onClick={() => {
+                handleClick(item._id)
+              }}
             >
-              Log Out
+              {item.name}
             </NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to='/login'>Sign In</NavLink>
-            <span>or</span>
-            <NavLink to='/register'>Register</NavLink>
-          </>
-        )}
+          ))}
+        </div>
 
-      </div>
-    </header>
+        <div className="login-header row align-center center-text">
+          {state.user ? (
+            <>
+              <p className='welcome'>
+                Welcome, {state.user.firstName}
+              </p>
+              <NavLink
+                to='/logout'
+                onClick={logout}
+              >
+                Log Out
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink to='/login'>Sign In</NavLink>
+              <span>or</span>
+              <NavLink to='/register'>Register</NavLink>
+            </>
+          )}
+        </div>
+      </header>
+    </>
   )
 }
 

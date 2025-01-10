@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 module.exports = {
   async getAllProducts(req, res) {
     try {
-      const products = await Product.find();
+      const products = await Product.find().populate('category');
 
       res.status(200).json(products)
     } catch (err) {
@@ -50,11 +50,10 @@ module.exports = {
 
   async updateProductById(req, res) {
     try {
-      console.log('User: ', req.user._id)
       const product = await Product.findByIdAndUpdate({
         _id: req.params.id
       }, req.body,
-        { new: true });
+        { new: true }).populate('category');
 
       res.status(200).json(product);
     } catch (err) {

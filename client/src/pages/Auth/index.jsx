@@ -14,7 +14,7 @@ const initialFormData = {
   firstName: "",
   lastName: "",
   email: "",
-  password: "",
+  password: ""
 };
 
 function Auth({ isLogin }) {
